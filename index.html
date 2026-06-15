@@ -56,14 +56,11 @@
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: var(--text);
-      text-decoration: none;
-    }
-    .nav-brand span {
       background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      text-decoration: none;
     }
 
     .nav-links {
@@ -112,18 +109,13 @@
     }
 
     .hero-eyebrow {
-      display: flex; align-items: center; gap: 0.6rem;
+      display: flex; align-items: center;
       font-size: 0.8rem;
       color: var(--cyan);
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 1.6rem;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      width: 28px; height: 1px;
-      background: var(--cyan);
     }
 
     h1.hero-name {
@@ -246,7 +238,7 @@
     .section-header { margin-bottom: 3rem; }
 
     .section-eyebrow {
-      display: flex; align-items: center; gap: 0.6rem;
+      display: flex; align-items: center;
       font-size: 0.75rem;
       font-weight: 600;
       color: var(--cyan);
@@ -254,7 +246,6 @@
       text-transform: uppercase;
       margin-bottom: 0.7rem;
     }
-    .section-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--cyan); }
 
     .section-title {
       font-size: clamp(1.9rem, 4vw, 2.8rem);
@@ -592,7 +583,7 @@
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="#hero" class="nav-brand">Naveen<span>kumar C</span></a>
+  <a href="#hero" class="nav-brand">Naveenkumar C</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -752,6 +743,21 @@
           <li>Built a batch job for bulk credit-note generation using JavaScript, AWS Batch, MongoDB and Postgres — 500+ credit notes per day.</li>
           <li>Built a One-on-One web app (PERN stack) for employees and managers to track meetings, goals and action items.</li>
           <li>Delivered SAP integration via SOAP endpoints for two-way data sync between SAP and internal systems, and migrated data from MongoDB to Postgres.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-card-top">
+          <div class="exp-meta">
+            <div class="exp-company">Kumaraguru Centre for Industrial Research &amp; Innovation &middot; Coimbatore, TN</div>
+            <div class="exp-role">Intern</div>
+          </div>
+          <div class="exp-badge">Jun 2019 – Oct 2019</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Worked on the development of an Autonomous campus utility vehicle.</li>
+          <li>Environment mapping using LiDAR and designed CAN (Controller Area Network) for communication among MCUs.</li>
+          <li>Developed code for a Bluetooth module to communicate from MCU to Android application.</li>
         </ul>
       </div>
 
