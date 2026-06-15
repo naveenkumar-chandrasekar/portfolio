@@ -6,77 +6,40 @@
   <title>Naveenkumar C — Full-Stack & AI Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      /* Surfaces */
-      --page:     #FFFDF7;
-      --card:     #FEF9EE;
-      --hover:    #F7F0E3;
-      --active:   #EDE4D3;
-      --border:   #EAE0D0;
-      --border-s: #D9CFC0;
-
-      /* Terracotta */
-      --blush:    #FDE8E0;
-      --peach:    #F4A58A;
-      --terra:    #E76F51;
-      --brick:    #C4533A;
-      --ember:    #9B3B25;
-
-      /* Teal */
-      --mist:     #D4E8E5;
-      --sage:     #52A69A;
-      --teal:     #264653;
-      --abyss:    #1B3540;
-
-      /* Typography */
-      --midnight: #1A1A2E;
-      --body:     #7C6F64;
-      --caption:  #B5A898;
-
-      /* Gold */
-      --cream-gold: #FDF3DC;
-      --amber:    #E9B84A;
-      --gold:     #C4902A;
-
-      /* Helpers */
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans:  'DM Sans', system-ui, sans-serif;
-      --mono:  'JetBrains Mono', monospace;
-    }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--page);
-      color: var(--body);
-      font-family: var(--sans);
+      background: #FFFDF7;
+      color: #7C6F64;
+      font-family: 'Inter', system-ui, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
     ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--page); }
-    ::-webkit-scrollbar-thumb { background: var(--terra); border-radius: 2px; }
+    ::-webkit-scrollbar-track { background: #FFFDF7; }
+    ::-webkit-scrollbar-thumb { background: #E76F51; border-radius: 2px; }
 
-    /* ── NAV ── */
+    /* ─────────────── NAV ─────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 6%;
-      background: var(--teal);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 6%;
+      height: 60px;
+      background: #264653;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
     .nav-brand {
-      font-family: var(--serif);
-      font-size: 1.05rem;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.1rem;
       font-weight: 700;
-      color: #fff;
+      color: #FFFDF7;
       text-decoration: none;
       letter-spacing: -0.01em;
     }
@@ -86,81 +49,84 @@
       list-style: none;
     }
     .nav-links a {
-      color: rgba(255,255,255,0.65);
+      color: #EAE0D0;
       text-decoration: none;
       font-size: 0.875rem;
       font-weight: 500;
+      position: relative;
+      padding-bottom: 2px;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover { color: #FFFDF7; }
+    .nav-links a.active {
+      color: #FFFDF7;
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0; right: 0;
+      height: 2px;
+      background: #E76F51;
+      border-radius: 1px;
+    }
 
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+    .hamburger span { width: 22px; height: 2px; background: #FFFDF7; border-radius: 2px; }
 
-    /* ── HERO ── */
+    /* ─────────────── HERO ─────────────── */
     #hero {
       min-height: 100vh;
       display: flex; align-items: center;
       padding: 7rem 6% 5rem;
+      background: #FFFDF7;
       position: relative; overflow: hidden;
-      background: var(--page);
     }
 
     .hero-grid {
-      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      position: absolute; inset: 0; pointer-events: none;
       background-image:
-        linear-gradient(rgba(38,70,83,0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(38,70,83,0.055) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
-    }
-    .hero-glow {
-      position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      background:
-        radial-gradient(ellipse 50% 55% at 5% 55%, rgba(231,111,81,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 90% 30%, rgba(38,70,83,0.06) 0%, transparent 60%);
+        linear-gradient(rgba(38,70,83,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(38,70,83,0.05) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 10%, transparent 100%);
     }
 
-    .hero-content {
-      position: relative; z-index: 1;
-      max-width: 800px;
-    }
+    .hero-content { position: relative; z-index: 1; max-width: 780px; }
 
     .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--sage);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
       font-weight: 500;
+      color: #52A69A;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.2rem;
     }
 
     h1.hero-name {
-      font-family: var(--serif);
-      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(3rem, 8vw, 6rem);
       font-weight: 900;
       line-height: 1.0;
       letter-spacing: -0.02em;
-      color: var(--midnight);
-      margin-bottom: 0.6rem;
+      color: #1A1A2E;
+      margin-bottom: 0.5rem;
     }
 
     .typed-wrap {
-      height: 2rem;
+      height: 1.8rem;
       overflow: hidden;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.4rem;
     }
     .typed-text {
-      font-family: var(--sans);
-      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
       font-weight: 600;
-      color: var(--terra);
+      color: #E76F51;
     }
     .cursor-typed {
       display: inline-block;
-      width: 2px; height: 1em;
-      background: var(--terra);
+      width: 2px; height: 0.95em;
+      background: #E76F51;
       margin-left: 2px;
       vertical-align: middle;
       animation: blink 0.9s infinite;
@@ -169,102 +135,114 @@
 
     .hero-desc {
       font-size: 1rem;
-      color: var(--body);
+      color: #7C6F64;
       max-width: 560px;
       line-height: 1.8;
-      margin-bottom: 2.4rem;
+      margin-bottom: 2.2rem;
     }
-    .hero-desc strong { color: var(--midnight); font-weight: 600; }
+    .hero-desc strong { color: #1A1A2E; font-weight: 600; }
 
     .hero-actions {
-      display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem;
-      margin-bottom: 2.8rem;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.85rem;
+      margin-bottom: 2.4rem;
     }
 
     .btn-primary {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--terra);
-      color: #fff;
-      padding: 0.78rem 1.7rem;
-      border-radius: 8px;
+      background: #E76F51;
+      color: #FFFDF7;
+      padding: 0.72rem 1.6rem;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
       font-weight: 600;
       font-size: 0.9rem;
       text-decoration: none;
+      border: none; cursor: pointer;
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(231,111,81,0.3);
+      box-shadow: 0 4px 18px rgba(231,111,81,0.28);
     }
-    .btn-primary:hover { background: var(--brick); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(231,111,81,0.38); }
-    .btn-primary:active { background: var(--brick); transform: translateY(0); }
+    .btn-primary:hover { background: #F4A58A; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(231,111,81,0.35); }
+    .btn-primary:active { background: #C4533A; transform: translateY(0); }
 
-    .btn-ghost {
+    .btn-secondary {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      color: var(--teal);
-      padding: 0.78rem 1.7rem;
-      border-radius: 8px;
+      background: transparent;
+      color: #264653;
+      padding: 0.72rem 1.6rem;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
       font-weight: 600;
       font-size: 0.9rem;
       text-decoration: none;
-      border: 1.5px solid var(--teal);
-      background: transparent;
+      border: 1.5px solid #264653;
       transition: background 0.2s, color 0.2s, transform 0.2s;
     }
-    .btn-ghost:hover { background: var(--teal); color: #fff; transform: translateY(-2px); }
+    .btn-secondary:hover { background: #264653; color: #FFFDF7; transform: translateY(-2px); }
 
     .hero-socials {
-      display: flex; flex-wrap: wrap; gap: 0.65rem;
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
     }
     .social-pill {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.45rem 0.9rem;
+      padding: 0.42rem 0.9rem;
       border-radius: 30px;
-      border: 1px solid var(--border-s);
-      background: var(--card);
-      color: var(--body);
+      border: 1px solid #EAE0D0;
+      background: #FEF9EE;
+      color: #52A69A;
       text-decoration: none;
       font-size: 0.82rem;
       font-weight: 500;
       transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s;
     }
     .social-pill:hover {
-      color: var(--terra);
-      border-color: var(--peach);
-      background: var(--blush);
+      color: #264653;
+      border-color: #264653;
+      background: #D4E8E5;
       transform: translateY(-2px);
     }
 
-    /* ── SECTION COMMONS ── */
-    section { padding: 6rem 6%; }
+    /* ─────────────── SECTION COMMONS ─────────────── */
+    section { padding: 5.5rem 6%; }
     .section-inner { max-width: 1020px; margin: 0 auto; }
     .section-header { margin-bottom: 3rem; }
 
-    .section-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.72rem;
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
       font-weight: 500;
-      color: var(--sage);
-      letter-spacing: 0.12em;
+      color: #B5A898;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
     .section-title {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 2.9rem);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.9rem, 3.8vw, 2.8rem);
       font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--midnight);
+      color: #1A1A2E;
       line-height: 1.1;
+      letter-spacing: -0.02em;
+      padding-bottom: 0.8rem;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 48px; height: 3px;
+      background: #E76F51;
+      border-radius: 2px;
     }
 
     .section-sub {
-      color: var(--body);
+      color: #7C6F64;
       font-size: 0.95rem;
-      margin-top: 0.6rem;
+      margin-top: 1rem;
       max-width: 520px;
     }
 
-    /* ── ABOUT ── */
-    #about { background: var(--card); }
+    /* ─────────────── ABOUT ─────────────── */
+    #about { background: #FEF9EE; }
 
     .about-grid {
       display: grid;
@@ -274,322 +252,318 @@
     }
 
     .about-body p {
-      color: var(--body);
+      color: #7C6F64;
       font-size: 0.96rem;
       line-height: 1.85;
       margin-bottom: 1.1rem;
     }
-    .about-body p strong { color: var(--midnight); font-weight: 600; }
+    .about-body p strong { color: #1A1A2E; font-weight: 600; }
     .about-body p:last-child { margin-bottom: 0; }
 
-    .about-cards { display: flex; flex-direction: column; gap: 0.85rem; }
+    .about-cards { display: flex; flex-direction: column; gap: 0.8rem; }
 
     .acard {
-      background: var(--page);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--terra);
-      border-radius: 10px;
-      padding: 1.1rem 1.3rem;
-      transition: border-left-color 0.2s, background 0.2s, transform 0.2s;
+      background: #FFFDF7;
+      border: 0.5px solid #EAE0D0;
+      border-left: 3px solid #E76F51;
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      transition: background 0.2s, border-left-color 0.2s, transform 0.2s;
     }
-    .acard:hover { border-left-color: var(--sage); background: var(--hover); transform: translateX(4px); }
-    .acard h4 { font-size: 0.88rem; font-weight: 600; color: var(--midnight); margin-bottom: 0.25rem; }
-    .acard p { font-size: 0.78rem; color: var(--body); line-height: 1.5; margin: 0; }
+    .acard:hover { background: #F7F0E3; border-left-color: #52A69A; transform: translateX(4px); }
+    .acard h4 { font-size: 0.87rem; font-weight: 600; color: #1A1A2E; margin-bottom: 0.2rem; }
+    .acard p { font-size: 0.77rem; color: #7C6F64; line-height: 1.5; margin: 0; }
 
-    /* ── EXPERIENCE ── */
-    #experience { background: var(--page); }
-    .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    /* ─────────────── EXPERIENCE ─────────────── */
+    #experience { background: #FFFDF7; }
+    .exp-list { display: flex; flex-direction: column; gap: 1.2rem; }
 
     .exp-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 2rem 2.2rem;
-      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+      background: #FEF9EE;
+      border: 0.5px solid #EAE0D0;
+      border-radius: 12px;
+      padding: 1.8rem 2rem;
+      transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
     }
     .exp-card:hover {
-      border-color: var(--peach);
-      background: var(--hover);
-      box-shadow: 0 8px 32px rgba(231,111,81,0.1);
+      background: #F7F0E3;
+      border-color: #D9CFC0;
+      box-shadow: 0 6px 24px rgba(231,111,81,0.08);
     }
 
     .exp-card-top {
       display: flex; align-items: flex-start; justify-content: space-between;
-      gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;
+      gap: 1rem; margin-bottom: 0.9rem; flex-wrap: wrap;
     }
 
     .exp-company {
-      font-family: var(--mono);
-      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
       font-weight: 500;
-      color: var(--sage);
-      letter-spacing: 0.08em;
+      color: #52A69A;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
     .exp-role {
-      font-family: var(--serif);
-      font-size: 1.1rem;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
       font-weight: 700;
-      color: var(--midnight);
+      color: #1A1A2E;
     }
-
     .exp-badge {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: var(--caption);
-      background: var(--active);
-      border: 1px solid var(--border-s);
-      padding: 0.3rem 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: #B5A898;
+      background: #EDE4D3;
+      border: 0.5px solid #D9CFC0;
+      padding: 0.28rem 0.7rem;
       border-radius: 20px;
       white-space: nowrap;
       flex-shrink: 0;
     }
 
-    .exp-bullets {
-      list-style: none;
-      display: flex; flex-direction: column; gap: 0.55rem;
-    }
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.2rem; }
     .exp-bullets li {
       font-size: 0.875rem;
-      color: var(--body);
-      padding-left: 1.2rem;
+      color: #7C6F64;
+      padding-left: 1.1rem;
       position: relative;
       line-height: 1.7;
     }
     .exp-bullets li::before {
       content: '';
       position: absolute; left: 0; top: 0.65em;
-      width: 5px; height: 5px;
+      width: 4px; height: 4px;
       border-radius: 50%;
-      background: var(--terra);
+      background: #E76F51;
     }
 
-    /* ── PROJECTS ── */
-    #projects { background: var(--card); }
+    /* ─────────────── PROJECTS ─────────────── */
+    #projects { background: #FEF9EE; }
 
     .proj-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
 
     .proj-card {
-      background: var(--page);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.8rem;
+      background: #FEF9EE;
+      border: 0.5px solid #EAE0D0;
+      border-radius: 12px;
+      padding: 1.6rem;
       display: flex; flex-direction: column;
-      transition: border-color 0.25s, transform 0.3s, box-shadow 0.3s, background 0.25s;
+      transition: background 0.2s, border-color 0.2s, transform 0.25s, box-shadow 0.25s;
     }
     .proj-card:hover {
-      border-color: var(--peach);
-      background: var(--hover);
+      background: #F7F0E3;
+      border-color: #D9CFC0;
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(231,111,81,0.1);
+      box-shadow: 0 12px 32px rgba(231,111,81,0.09);
     }
 
     .proj-top {
       display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
     }
-    .proj-emoji { font-size: 2rem; }
-    .proj-ext {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      color: var(--caption);
+    .proj-emoji { font-size: 1.9rem; }
+
+    .proj-link-btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      color: #264653;
       text-decoration: none;
       font-size: 0.78rem;
-      font-weight: 500;
-      border: 1px solid var(--border);
+      font-weight: 600;
+      border: 1px solid #264653;
       padding: 0.28rem 0.65rem;
       border-radius: 6px;
-      background: var(--card);
-      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      background: transparent;
+      transition: background 0.2s, color 0.2s;
     }
-    .proj-ext:hover { color: var(--teal); border-color: var(--sage); background: var(--mist); }
+    .proj-link-btn:hover { background: #264653; color: #FFFDF7; }
 
     .proj-title {
-      font-family: var(--serif);
+      font-family: 'Playfair Display', Georgia, serif;
       font-size: 1.05rem;
       font-weight: 700;
-      color: var(--midnight);
-      margin-bottom: 0.55rem;
+      color: #1A1A2E;
+      margin-bottom: 0.5rem;
     }
     .proj-desc {
       font-size: 0.84rem;
-      color: var(--body);
+      color: #7C6F64;
       line-height: 1.7;
       flex: 1;
-      margin-bottom: 1.3rem;
+      margin-bottom: 1.2rem;
     }
-    .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 
-    /* ── SKILLS ── */
-    #skills { background: var(--page); }
+    /* ─────────────── BADGES ─────────────── */
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    .badge-backend  { background: #D4E8E5; color: #1B3540; }
+    .badge-frontend { background: #FDE8E0; color: #9B3B25; }
+    .badge-ai       { background: #FDF3DC; color: #C4902A; }
+    .badge-devops   { background: #EAE0D0; color: #264653; }
+    .badge-lang     { background: #EDE4D3; color: #1A1A2E; }
+
+    /* ─────────────── SKILLS ─────────────── */
+    #skills { background: #FFFDF7; }
 
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 1.2rem;
+      gap: 1.1rem;
     }
 
     .skill-group {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: #FEF9EE;
+      border: 0.5px solid #EAE0D0;
       border-radius: 12px;
-      padding: 1.4rem 1.5rem;
-      transition: border-color 0.2s, background 0.2s;
+      padding: 1.3rem 1.4rem;
+      transition: background 0.2s, border-color 0.2s;
     }
-    .skill-group:hover { border-color: var(--border-s); background: var(--hover); }
+    .skill-group:hover { background: #F7F0E3; border-color: #D9CFC0; }
 
     .sg-title {
-      font-family: var(--mono);
-      font-size: 0.68rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
       font-weight: 500;
-      color: var(--caption);
+      color: #B5A898;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.8rem;
     }
-    .sg-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .sg-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
-    /* Badge types */
-    .badge {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      font-weight: 500;
-      padding: 0.25rem 0.65rem;
-      border-radius: 4px;
-    }
-    .badge-backend  { background: var(--mist);      color: var(--teal);   border: 1px solid #b8d8d4; }
-    .badge-frontend { background: var(--blush);     color: var(--ember);  border: 1px solid #f0c4b4; }
-    .badge-ai       { background: var(--cream-gold); color: var(--gold);   border: 1px solid #f0d898; }
-    .badge-devops   { background: var(--active);    color: var(--body);   border: 1px solid var(--border-s); }
-    .badge-lang     { background: var(--card);      color: var(--midnight); border: 1px solid var(--border-s); }
-
-    /* ── CONTACT ── */
-    #contact { background: var(--card); }
+    /* ─────────────── CONTACT ─────────────── */
+    #contact { background: #FEF9EE; }
 
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3.5rem;
+      gap: 3rem;
       align-items: start;
     }
 
     .contact-left h3 {
-      font-family: var(--serif);
+      font-family: 'Playfair Display', Georgia, serif;
       font-size: 1.2rem;
       font-weight: 700;
-      color: var(--midnight);
-      margin-bottom: 0.5rem;
+      color: #1A1A2E;
+      margin-bottom: 0.4rem;
     }
     .contact-left p {
-      color: var(--body);
+      color: #7C6F64;
       font-size: 0.9rem;
       line-height: 1.75;
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem;
     }
 
-    .contact-items { display: flex; flex-direction: column; gap: 0.7rem; }
+    .contact-items { display: flex; flex-direction: column; gap: 0.6rem; }
     .contact-item {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 0.85rem 1.1rem;
-      background: var(--page);
-      border: 1px solid var(--border);
+      display: flex; align-items: center; gap: 0.9rem;
+      padding: 0.8rem 1rem;
+      background: #FFFDF7;
+      border: 0.5px solid #EAE0D0;
       border-radius: 10px;
-      color: var(--body);
+      color: #7C6F64;
       text-decoration: none;
       font-size: 0.875rem;
       font-weight: 500;
-      transition: border-color 0.2s, color 0.2s, transform 0.2s, background 0.2s;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
     }
     .contact-item:hover {
-      color: var(--midnight);
-      border-color: var(--peach);
-      background: var(--blush);
+      background: #F7F0E3;
+      border-color: #D9CFC0;
+      color: #1A1A2E;
       transform: translateX(4px);
     }
-    .contact-item svg { color: var(--sage); flex-shrink: 0; }
+    .contact-item svg { color: #52A69A; flex-shrink: 0; }
 
     .resume-card {
-      background: var(--page);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 2.2rem;
+      background: #FFFDF7;
+      border: 0.5px solid #EAE0D0;
+      border-radius: 12px;
+      padding: 2rem;
       text-align: center;
     }
-    .resume-card .rc-icon {
-      width: 56px; height: 56px;
-      border-radius: 14px;
-      background: var(--blush);
-      border: 1px solid var(--peach);
+    .rc-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      background: #FDE8E0;
+      border: 1px solid #F4A58A;
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.2rem;
-      font-size: 1.5rem;
+      margin: 0 auto 1.1rem;
+      font-size: 1.4rem;
     }
     .resume-card h3 {
-      font-family: var(--serif);
-      font-size: 1.1rem;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
       font-weight: 700;
-      color: var(--midnight);
-      margin-bottom: 0.5rem;
+      color: #1A1A2E;
+      margin-bottom: 0.4rem;
     }
     .resume-card p {
-      color: var(--body);
+      color: #7C6F64;
       font-size: 0.84rem;
       line-height: 1.65;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.4rem;
     }
 
-    /* ── FOOTER ── */
+    /* ─────────────── FOOTER ─────────────── */
     footer {
-      background: var(--abyss);
-      border-top: 1px solid rgba(255,255,255,0.07);
+      background: #1B3540;
       padding: 1.8rem 6%;
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 1rem;
     }
     .footer-left {
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.4);
+      color: #EAE0D0;
     }
-    .footer-left span { color: rgba(255,255,255,0.65); }
+    .footer-left span { color: #FFFDF7; font-weight: 500; }
     .footer-right { display: flex; gap: 1.5rem; }
     .footer-right a {
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.4);
+      color: #52A69A;
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-right a:hover { color: rgba(255,255,255,0.8); }
+    .footer-right a:hover { color: #FFFDF7; }
 
-    /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    /* ─────────────── REVEAL ─────────────── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── MOBILE ── */
+    /* ─────────────── MOBILE ─────────────── */
     @media (max-width: 768px) {
-      section { padding: 4.5rem 5%; }
+      section { padding: 4rem 5%; }
       .nav-links {
         display: none; flex-direction: column;
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: var(--teal);
+        position: absolute; top: 60px; left: 0; right: 0;
+        background: #264653;
         border-bottom: 1px solid rgba(255,255,255,0.1);
-        padding: 1.5rem 5%; gap: 1.2rem;
+        padding: 1.2rem 5%; gap: 1rem;
       }
       .nav-links.open { display: flex; }
       .hamburger { display: flex; }
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- ─── NAV ─── -->
 <nav>
   <a href="/" class="nav-brand">Naveenkumar C</a>
   <ul class="nav-links" id="navLinks">
@@ -599,15 +573,12 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- ─── HERO ─── -->
 <section id="hero">
   <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
   <div class="hero-content">
 
     <div class="hero-eyebrow">Full-Stack &amp; AI Engineer · Chennai, India</div>
@@ -619,7 +590,8 @@
     </div>
 
     <p class="hero-desc">
-      ~5 years building data-intensive enterprise platforms — from LLM-powered insights and costing engines to large-scale alerting and bulk-data pipelines. Strong across <strong>Node.js · Vue.js · PostgreSQL</strong>, with a focus on performance and shipping AI into production.
+      ~5 years building data-intensive enterprise platforms — from LLM-powered insights and costing engines to large-scale alerting and bulk-data pipelines.
+      Strong across <strong>Node.js · Vue.js · PostgreSQL</strong>, with a focus on performance and shipping AI into production.
     </p>
 
     <div class="hero-actions">
@@ -627,7 +599,7 @@
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         View My Work
       </a>
-      <a href="resume.html" target="_blank" rel="noopener" class="btn-ghost">
+      <a href="resume.html" target="_blank" rel="noopener" class="btn-secondary">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         View Resume
       </a>
@@ -655,11 +627,11 @@
   </div>
 </section>
 
-<!-- ── ABOUT ── -->
+<!-- ─── ABOUT ─── -->
 <section id="about">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div class="section-eyebrow">About</div>
+      <div class="section-label">About</div>
       <h2 class="section-title">Who I Am</h2>
     </div>
     <div class="about-grid">
@@ -679,11 +651,11 @@
   </div>
 </section>
 
-<!-- ── EXPERIENCE ── -->
+<!-- ─── EXPERIENCE ─── -->
 <section id="experience">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div class="section-eyebrow">Experience</div>
+      <div class="section-label">Experience</div>
       <h2 class="section-title">Work History</h2>
     </div>
     <div class="exp-list">
@@ -691,7 +663,7 @@
       <div class="exp-card reveal">
         <div class="exp-card-top">
           <div>
-            <div class="exp-company">Quaking Aspen Technologies India Pvt Ltd &mdash; Freehand &middot; Chennai, TN</div>
+            <div class="exp-company">Quaking Aspen Technologies India Pvt Ltd — Freehand · Chennai, TN</div>
             <div class="exp-role">Software Development Engineer I</div>
           </div>
           <div class="exp-badge">Jan 2026 – Present</div>
@@ -705,7 +677,7 @@
       <div class="exp-card reveal">
         <div class="exp-card-top">
           <div>
-            <div class="exp-company">Quaking Aspen Pvt Ltd &mdash; Pando &middot; Chennai, TN</div>
+            <div class="exp-company">Quaking Aspen Pvt Ltd — Pando · Chennai, TN</div>
             <div class="exp-role">Software Development Engineer I</div>
           </div>
           <div class="exp-badge">Sep 2023 – Jan 2026</div>
@@ -722,7 +694,7 @@
       <div class="exp-card reveal">
         <div class="exp-card-top">
           <div>
-            <div class="exp-company">BYJU'S – The Learning App &middot; Bangalore, KA</div>
+            <div class="exp-company">BYJU'S – The Learning App · Bangalore, KA</div>
             <div class="exp-role">Software Engineer</div>
           </div>
           <div class="exp-badge">Jun 2021 – Sep 2023</div>
@@ -738,7 +710,7 @@
       <div class="exp-card reveal">
         <div class="exp-card-top">
           <div>
-            <div class="exp-company">Kumaraguru Centre for Industrial Research &amp; Innovation &middot; Coimbatore, TN</div>
+            <div class="exp-company">Kumaraguru Centre for Industrial Research &amp; Innovation · Coimbatore, TN</div>
             <div class="exp-role">Intern</div>
           </div>
           <div class="exp-badge">Jun 2019 – Oct 2019</div>
@@ -754,11 +726,11 @@
   </div>
 </section>
 
-<!-- ── PROJECTS ── -->
+<!-- ─── PROJECTS ─── -->
 <section id="projects">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div class="section-eyebrow">Projects</div>
+      <div class="section-label">Projects</div>
       <h2 class="section-title">Things I've Built</h2>
       <p class="section-sub">Personal projects exploring LLMs, AI tooling, and full-stack patterns.</p>
     </div>
@@ -767,7 +739,7 @@
       <div class="proj-card reveal">
         <div class="proj-top">
           <div class="proj-emoji">🛡️</div>
-          <a href="https://github.com/naveenkumar-chandrasekar" target="_blank" rel="noopener" class="proj-ext">
+          <a href="https://github.com/naveenkumar-chandrasekar" target="_blank" rel="noopener" class="proj-link-btn">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             GitHub
           </a>
@@ -786,7 +758,7 @@
       <div class="proj-card reveal">
         <div class="proj-top">
           <div class="proj-emoji">💰</div>
-          <a href="https://github.com/naveenkumar-chandrasekar" target="_blank" rel="noopener" class="proj-ext">
+          <a href="https://github.com/naveenkumar-chandrasekar" target="_blank" rel="noopener" class="proj-link-btn">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             GitHub
           </a>
@@ -805,7 +777,7 @@
       <div class="proj-card reveal">
         <div class="proj-top">
           <div class="proj-emoji">🤖</div>
-          <a href="https://github.com/naveenkumar-chandrasekar" target="_blank" rel="noopener" class="proj-ext">
+          <a href="https://github.com/naveenkumar-chandrasekar" target="_blank" rel="noopener" class="proj-link-btn">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             GitHub
           </a>
@@ -818,6 +790,7 @@
           <span class="badge badge-backend">PostgreSQL</span>
           <span class="badge badge-frontend">Vue.js</span>
           <span class="badge badge-ai">LLMs</span>
+          <span class="badge badge-ai">Tool Calling</span>
         </div>
       </div>
 
@@ -825,11 +798,11 @@
   </div>
 </section>
 
-<!-- ── SKILLS ── -->
+<!-- ─── SKILLS ─── -->
 <section id="skills">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div class="section-eyebrow">Skills</div>
+      <div class="section-label">Skills</div>
       <h2 class="section-title">Tech Stack</h2>
     </div>
     <div class="skills-grid">
@@ -912,11 +885,11 @@
   </div>
 </section>
 
-<!-- ── CONTACT ── -->
+<!-- ─── CONTACT ─── -->
 <section id="contact">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div class="section-eyebrow">Contact</div>
+      <div class="section-label">Contact</div>
       <h2 class="section-title">Let's Connect</h2>
     </div>
     <div class="contact-grid">
@@ -959,7 +932,7 @@
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- ─── FOOTER ─── -->
 <footer>
   <div class="footer-left">© 2026 <span>Naveenkumar C</span>. All rights reserved.</div>
   <div class="footer-right">
@@ -978,7 +951,6 @@
   const phrases = ['Building LLM-powered products', 'Full-Stack Engineer', 'AI Integration Specialist', 'Node.js + Vue.js + PostgreSQL'];
   let pi = 0, ci = 0, del = false;
   const el = document.getElementById('typed');
-
   function type() {
     const word = phrases[pi];
     if (!del) {
@@ -995,7 +967,7 @@
   const obs = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 90);
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
         obs.unobserve(e.target);
       }
     });
