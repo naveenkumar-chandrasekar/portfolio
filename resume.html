@@ -10,100 +10,62 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:     #05050d;
-      --bg3:    #0e0e18;
-      --border: rgba(255,255,255,0.06);
-      --border2:rgba(255,255,255,0.11);
-      --text:   #f0f0f8;
-      --muted:  #7a7a90;
-      --purple: #7c3aed;
-      --cyan:   #22d3ee;
-      --grad:   linear-gradient(135deg, #7c3aed 0%, #22d3ee 100%);
+      --bg:      #05050d;
+      --bg3:     #0e0e18;
+      --border:  rgba(255,255,255,0.06);
+      --border2: rgba(255,255,255,0.11);
+      --text:    #f0f0f8;
+      --muted:   #7a7a90;
+      --purple:  #7c3aed;
+      --cyan:    #22d3ee;
+      --grad:    linear-gradient(135deg, #7c3aed 0%, #22d3ee 100%);
     }
 
-    html, body {
-      height: 100%;
+    html, body { height: 100%; overflow: hidden; }
+
+    body {
+      display: flex;
+      flex-direction: column;
       background: var(--bg);
       color: var(--text);
       font-family: 'DM Sans', system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── TOPBAR ── */
-    .topbar {
-      position: sticky; top: 0; z-index: 10;
+    /* ── NAV (same as main site) ── */
+    nav {
+      flex-shrink: 0;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0.85rem 2rem;
+      padding: 1.1rem 6%;
       background: rgba(5,5,13,0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--border);
+      z-index: 10;
     }
 
-    .topbar-left {
-      display: flex; align-items: center; gap: 1rem;
-    }
-
-    .back-btn {
-      display: inline-flex; align-items: center; gap: 0.45rem;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      border: 1px solid var(--border2);
-      padding: 0.4rem 0.9rem;
-      border-radius: 7px;
-      background: rgba(255,255,255,0.02);
-      transition: color 0.2s, border-color 0.2s, background 0.2s;
-    }
-    .back-btn:hover { color: var(--text); border-color: rgba(124,58,237,0.4); background: rgba(124,58,237,0.07); }
-
-    .topbar-title {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .topbar-title span { color: var(--muted); font-weight: 400; }
-
-    .download-btn {
-      display: inline-flex; align-items: center; gap: 0.45rem;
+    .nav-brand {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       background: var(--grad);
-      color: #fff;
-      padding: 0.5rem 1.1rem;
-      border-radius: 7px;
-      font-size: 0.85rem;
-      font-weight: 600;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
-      box-shadow: 0 2px 16px rgba(124,58,237,0.25);
-    }
-    .download-btn:hover { opacity: 0.87; transform: translateY(-1px); }
-
-    /* ── PDF VIEWER ── */
-    .viewer {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      min-height: calc(100vh - 57px);
-      padding: 2rem 1.5rem 3rem;
-      background:
-        radial-gradient(ellipse 50% 40% at 15% 30%, rgba(124,58,237,0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 35% at 85% 70%, rgba(34,211,238,0.04) 0%, transparent 60%);
     }
 
-    .pdf-shell {
-      width: 100%;
-      max-width: 900px;
-      background: #fff;
-      border-radius: 12px;
+
+    /* ── PDF AREA ── */
+    .pdf-wrap {
+      flex: 1;
       overflow: hidden;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+      position: relative;
     }
 
-    .pdf-shell iframe {
+    .pdf-wrap iframe {
       width: 100%;
-      height: calc(100vh - 57px - 5rem);
-      min-height: 700px;
+      height: 100%;
       border: none;
       display: block;
     }
@@ -111,24 +73,12 @@
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="topbar-left">
-      <a href="/" class="back-btn">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-        Back
-      </a>
-      <span class="topbar-title">Naveenkumar C <span>/ Resume</span></span>
-    </div>
-    <a href="Naveenkumar_C_Resume.pdf" download class="download-btn">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Download
-    </a>
-  </div>
+  <nav>
+    <a href="/" class="nav-brand">Naveenkumar C</a>
+  </nav>
 
-  <div class="viewer">
-    <div class="pdf-shell">
-      <iframe src="Naveenkumar_C_Resume.pdf" title="Naveenkumar C Resume"></iframe>
-    </div>
+  <div class="pdf-wrap">
+    <iframe src="Naveenkumar_C_Resume.pdf" title="Naveenkumar C Resume"></iframe>
   </div>
 
 </body>
